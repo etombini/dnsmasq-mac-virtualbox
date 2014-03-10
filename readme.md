@@ -1,6 +1,6 @@
 # Introduction
 
-The goal is to be able to set up VM that are able to (1) communicate with each others, (2) are reachable from the host (your mac). With (1) and (2) done using their name (FQDN).
+How to set up VM that are able to (1) communicate with each others, (2) are reachable from the host (your mac). With (1) and (2) done using their name (FQDN).
 
 # DNSMasq Configuration
 
@@ -85,10 +85,9 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 10.99.99.0      0.0.0.0         255.255.255.0   U     0      0        0 eth0
 ```
 
-where ```10.0.2.1``` is your default gateway provided by the NAT networking. The default destination has to be set up like this. 
+where ```10.0.2.1``` is your default gateway provided by the NAT networking. The default destination has to be set up this way. 
 
-If you have the dnsmasq address (i.e ```10.99.99.1```) instead, it is not ok. Then you can swap the corresponding lines (```eth1``` and ```eth0```)' into ```/etc/udev/rules.d/70-persistent-net.rules```.
-Certainly not the best way to do, but it worked for me.
+Having the dnsmasq address (*i.e.* ```10.99.99.1```) instead is not ok. If so, you can swap the corresponding lines (```eth1``` and ```eth0```)' into ```/etc/udev/rules.d/70-persistent-net.rules```. *Certainly not the best way to do, but it worked for me.*
 
 ## MAC Address conflict
 
