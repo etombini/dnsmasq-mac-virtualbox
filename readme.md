@@ -4,6 +4,25 @@ How to set up VM that are able to (1) communicate with each others, (2) are reac
 
 # DNSMasq Configuration
 
+See configuration file for all details. Some specific configuration item are commented here. 
+
+ ```resolv-file=/etc/resolv.conf2``` seems to be useless so far. 
+ 
+
+ ```local=/vm/``` set ```.vm``` as a local domain that has to be set up using ```hosts``` file or DHCP. 
+
+ ```interface=vboxnet0```: interface to listen to.
+
+
+ ```except-interface=lo0```: do not listen on ```vboxnet0```.
+ 
+ ```bind-interfaces```: ... and nothing else (bis).
+
+ ```domain=vm``` set ```.vm``` as the local domain for the VM.
+ 
+ ```dhcp-range=10.99.99.1,10.99.99.254,12h``` set ```10.99.99.0/24``` as the VM network	
+ ```dhcp-option=3``` set default route provided by dnsmasq to nothing. Thus default route is supposed to be provided by the NAT network configuration.
+
 # VirtualBox Configuration
 
 The set up of the VM requires 2 network adapters : 
